@@ -1,17 +1,17 @@
 {
-  "name": "AulaReactNative",
-  "displayName": "AulaReactNative",
-  "expo": {
     "name": "AulaReactNative",
-    "slug": "AulaReactNative",
-    "privacy": "unlisted",
-    "sdkVersion": "36.0.0",
-    "version": "1.0.0",
-    "entryPoint": "node_modules/expo/AppEntry.js",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ]
-  }
+    "displayName": "AulaReactNative",
+    "expo": {
+        "name": "AulaReactNative",
+        "slug": "AulaReactNative",
+        "privacy": "unlisted",
+        "sdkVersion": "36.0.0",
+        "version": "1.0.0",
+        "entryPoint": "node_modules/expo/AppEntry.js",
+        "platforms": [
+            "ios",
+            "android",
+            "web"
+        ]
+    }
 }

@@ -8,11 +8,6 @@ export class Calculation {
     public installmentsNumber: number;
     public installmentValue: number
 
-    // constructor(private rate: number, private inCash: number,
-    //     private installmentsNumber: number, private installmentValue: number) {
-    //     this.calculate();
-    // }
-
     public calculate(): void {
         const total = this.installmentValue * this.installmentsNumber;
 
@@ -21,7 +16,7 @@ export class Calculation {
     }
 
     private futureValue(pv: number, noi: number, voi: number, rate: number): number {
-        // ( VP - (1+r)^n ) * (VP - r*Vo)
+        // Formula: (VP - (1+r)^n ) * (VP - r*Vo)
         return (voi - Math.pow((rate+1), noi) * (voi - rate*pv)) / rate;
     }
 
