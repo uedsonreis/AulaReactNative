@@ -37,7 +37,7 @@ export class HomeScreen extends Component<any, State> {
             <Header style={HomeScreen.styles.header}>
                 <StatusBar backgroundColor="blue" barStyle="light-content" />
                 <Body>
-                    <Title style={HomeScreen.styles.title}> Cálculo do IRPF </Title>
+                    <Title style={HomeScreen.styles.title}> Como Pagar? </Title>
                 </Body>
             </Header>
         ) };

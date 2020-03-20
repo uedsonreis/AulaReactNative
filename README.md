@@ -14,5 +14,6 @@ Projeto exemplo com React Native para cálculo de Imposto de Renda.
 - Criar um novo projeto utilizando o Expo #commandline: expo init
 - Escolha a opção: blank (TypeScript)
 - Informe o nome do projeto e.g.: AulaReactNative
+- Entre na pasta do projeto #commandline: cd AulaReactNative
 - Rodar o projeto utilizando o Expo #commandline: expo start -w
 - Rodar o projeto no emulador do Android #commandline: npm run android
