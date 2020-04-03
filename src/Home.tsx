@@ -1,6 +1,9 @@
 import React, { Component, ReactNode } from 'react';
+import { StyleSheet, Text, StatusBar } from 'react-native';
+import { Body, Button, Container, Content, Header, Input, Label, List, ListItem, Title } from 'native-base';
 
-import { StyleSheet, TextInput, Text, View, Button } from 'react-native';
+import FormItem from './components/FormItem';
+
 import { Calculation } from './entities/calculation';
 
 type Props = { navigation: any, screenProps?: any, children?: any };
@@ -16,24 +19,15 @@ export class HomeScreen extends Component<Props, State> {
         }
     }
 
-    private styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            backgroundColor: '#fff',
-            alignItems: 'center',
-            justifyContent: 'flex-start',
-        },
-        title: {
-            color: "#000",
-            fontSize: 20
+    private static styles = StyleSheet.create({
+        header: {
+            backgroundColor: '#222428'
         },
         calculateButton: {
             margin: 20
         },
-        textInput: {
-            height: 30,
-            width: '85%',
-            textAlign: "center"
+        title: {
+            color: 'white'
         }
     });
 
@@ -42,34 +36,49 @@ export class HomeScreen extends Component<Props, State> {
         this.props.navigation.navigate('result', this.state.calculation);
     }
 
+    static navigationOptions = () => {
+        return { header: () => (
+            <Header style={HomeScreen.styles.header}>
+                <StatusBar barStyle="light-content" />
+                <Body>
+                    <Title style={HomeScreen.styles.title}>Como Pagar?</Title>
+                </Body>
+            </Header>
+        )}
+    };
+
     render(): ReactNode {
         const { calculation } = this.state;
 
         return (
-            <View style={this.styles.container}>
+            <Container>
+                <Content>
 
-                <Text style={this.styles.title}> Valor à vista (R$): </Text>
-                <TextInput keyboardType='numeric' style={this.styles.textInput} onChangeText={
-                    (value) => calculation.inCash = Number(value)
-                } />
+                    <List>
+                        <FormItem
+                            label={'Valor à vista (R$):'}
+                            setValue={ (value: number) => calculation.inCash = value }
+                        />
+                        <FormItem
+                            label={'Quantidade de parcelas:'}
+                            setValue={ (value: number) => calculation.installmentsAmount = value }
+                        />
+                        <FormItem
+                            label={'Valor da parcela (R$):'}
+                            setValue={ (value: number) => calculation.installmentValue = value }
+                        />
+                        <FormItem
+                            label={'Rentabilidade (%):'}
+                            setValue={ (value: number) => calculation.rate = value / 100 }
+                        />
+                    </List>
 
-                <Text style={this.styles.title}> Quantidade de parcelas: </Text>
-                <TextInput keyboardType='numeric' style={this.styles.textInput} onChangeText={
-                    (value) => calculation.installmentsAmount = Number(value)
-                } />
+                    <Button style={HomeScreen.styles.calculateButton} onPress={() => this.calculate()} block>
+                        <Text style={HomeScreen.styles.title}>Cálcular</Text>
+                    </Button>
+                </Content>
 
-                <Text style={this.styles.title}> Valor da parcela (R$): </Text>
-                <TextInput keyboardType='numeric' style={this.styles.textInput} onChangeText={
-                    (value) => calculation.installmentValue = Number(value)
-                } />
-
-                <Text style={this.styles.title}> Rentabilidade (%): </Text>
-                <TextInput keyboardType='numeric' style={this.styles.textInput} onChangeText={
-                    (value) => calculation.rate = Number(value) / 100
-                } />
-
-                <Button title="Cálcular" onPress={() => this.calculate()} />
-            </View>
+            </Container>
         );
     }
 }
