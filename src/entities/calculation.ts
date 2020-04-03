@@ -1,9 +1,9 @@
 export class Calculation {
 
-    public inCash: number;
-    public installmentsAmount: number;
-    public installmentValue: number;
-    public rate: number;
+    public inCash!: number;
+    public installmentsAmount!: number;
+    public installmentValue!: number;
+    public rate!: number;
     
     public calculate(): number[] {
         const total = this.installmentValue * this.installmentsAmount;

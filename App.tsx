@@ -17,8 +17,11 @@ export default class App extends Component<any, any> {
 
         const AppContainer = createAppContainer(navigator);
 
-        return (
-            <AppContainer />
-        );
+        return ( <AppContainer /> );
     }
 }
+
+// Atualizar o expo-cli # npm i -g expo-cli
+// Instalar o expo-font # expo install expo-font
+// Utilizar o TextInput no lugar dos inputs # import TextInput from 'react-native'
+// Remover a font arial dos styles
